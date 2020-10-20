@@ -1,0 +1,14 @@
+C:\Users\Dirk2\source\repos\LinkedList\LinkedList\bin\Debug\LinkedList.exe.config
+C:\Users\Dirk2\source\repos\LinkedList\LinkedList\bin\Debug\LinkedList.exe
+C:\Users\Dirk2\source\repos\LinkedList\LinkedList\bin\Debug\LinkedList.pdb
+C:\Users\Dirk2\source\repos\LinkedList\LinkedList\obj\Debug\LinkedList.csprojAssemblyReference.cache
+C:\Users\Dirk2\source\repos\LinkedList\LinkedList\obj\Debug\LinkedList.csproj.CoreCompileInputs.cache
+C:\Users\Dirk2\source\repos\LinkedList\LinkedList\obj\Debug\LinkedList.exe
+C:\Users\Dirk2\source\repos\LinkedList\LinkedList\obj\Debug\LinkedList.pdb
+C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\bin\Debug\LinkedList.exe.config
+C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\bin\Debug\LinkedList.exe
+C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\bin\Debug\LinkedList.pdb
+C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\obj\Debug\LinkedList.csprojAssemblyReference.cache
+C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\obj\Debug\LinkedList.csproj.CoreCompileInputs.cache
+C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\obj\Debug\LinkedList.exe
+C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\obj\Debug\LinkedList.pdb
