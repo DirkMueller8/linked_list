@@ -13,13 +13,13 @@ through it from the head.
 
 This was a task as part of the C# developer line at Fernakademie Klett.
 
-![](https://github.com/DirkMueller8/linked_list/blob/master/screenshot_code.png)
+![](https://github.com/DirkMueller8/linked_list/blob/master/screenshot_output.png)
 
 *Fig 1: Excerpt of code showing the method to append an element to the tail directly*
 
 Example results after running the software:
 
-![](https://github.com/DirkMueller8/python_bikeshare_project/blob/master/snapshot_1.png)
+![](https://github.com/DirkMueller8/linked_list/blob/master/snapshot_1.png)
 
 *Fig 2: Example of the software output*
 
