@@ -4,12 +4,14 @@ namespace LinkedList
 {
     class listElement
     {
+        static int position = 0;
         // Software for a linked list implementation, where the last element
         // is appended to the end of the list (tail), without having to rund 
-        // through it from the head.
-        // This was a task as part of the C# developer line at Fernakademie Klett
+        // through it from the head. This was a task as part of the C# developer
+        // line at Fernakademie Klett
         // Dirk Mueller,
         // Oct 2019
+        // Extended: April 2022
         //
         string content;
         listElement next;
@@ -33,9 +35,12 @@ namespace LinkedList
 
         public void PrintToScreen()
         {
-            Console.WriteLine(content);
+            Console.WriteLine($"Position {position}: {content}");
             if (next != null)
+            {
+                position++;
                 next.PrintToScreen();
+            }
         }
     }
 

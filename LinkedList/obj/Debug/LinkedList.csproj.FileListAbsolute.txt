@@ -12,3 +12,11 @@ C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\obj\Debu
 C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\obj\Debug\LinkedList.csproj.CoreCompileInputs.cache
 C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\obj\Debug\LinkedList.exe
 C:\Users\Dirk2\udacity-git-course\new-git-project\LinkedList\LinkedList\obj\Debug\LinkedList.pdb
+C:\Users\dirkm\Source\Repos\linked_list\LinkedList\bin\Debug\LinkedList.exe.config
+C:\Users\dirkm\Source\Repos\linked_list\LinkedList\bin\Debug\LinkedList.exe
+C:\Users\dirkm\Source\Repos\linked_list\LinkedList\bin\Debug\LinkedList.pdb
+C:\Users\dirkm\Source\Repos\linked_list\LinkedList\obj\Debug\LinkedList.csproj.AssemblyReference.cache
+C:\Users\dirkm\Source\Repos\linked_list\LinkedList\obj\Debug\LinkedList.csproj.SuggestedBindingRedirects.cache
+C:\Users\dirkm\Source\Repos\linked_list\LinkedList\obj\Debug\LinkedList.csproj.CoreCompileInputs.cache
+C:\Users\dirkm\Source\Repos\linked_list\LinkedList\obj\Debug\LinkedList.exe
+C:\Users\dirkm\Source\Repos\linked_list\LinkedList\obj\Debug\LinkedList.pdb
