@@ -62,7 +62,7 @@ namespace LinkedList
             // Append element to the end of the list. With each append the 
             // instance tailOfList is set to the newly formed list element, 
             // by means of returning the value:
-
+             
             for (int element = 2; element < 5; element++)
                 tailOfList = tailOfList.AppendElement("Element " + element);
 
@@ -71,7 +71,7 @@ namespace LinkedList
             string inputString;
             do
             {
-                Console.WriteLine("Give a new element number (99 to abort): ");
+                Console.WriteLine("Give a new element number ('x' to abort): ");
                 inputString = Console.ReadLine();
 
                 // Append the new list element and determine the end of the list:
@@ -84,7 +84,7 @@ namespace LinkedList
                 Console.WriteLine("Print from head of list after appending:");
                 headOfList.PrintToScreen();
             }
-            while (inputString != "99");
+            while (inputString.ToLower() != "x");
         }
     }
 }
