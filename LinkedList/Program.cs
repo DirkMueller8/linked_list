@@ -93,12 +93,12 @@ namespace LinkedList
 
             while (!endProcess)
             {
-                Console.WriteLine("\nSelect from the following: 'a' for append, 'h' for make it head, 'x' for abort");
+                Console.WriteLine("\nPlease select: 'a' for append, 'h' for make it head, 'x' for abort");
                 inputString = Console.ReadLine();
                 switch (inputString)
                 {
                     case "a":
-                        Console.WriteLine("Give a new element number for appending ('x' to abort): ");
+                        Console.WriteLine("Give a new element number for appending: ");
                         inputElement = Console.ReadLine();
 
                         // append the new list element and determine the end of the list:
@@ -110,7 +110,7 @@ namespace LinkedList
                         break;
 
                     case "h":
-                        Console.WriteLine("Give a new element number for beginning ('x' to abort): ");
+                        Console.WriteLine("Give a new element number for beginning: ");
                         inputElement = Console.ReadLine();
 
                         // Append the new list element and determine the end of the list:
