@@ -18,8 +18,8 @@ of the linked list
 
 ![](https://github.com/DirkMueller8/linked_list/blob/master/HeadTailLinkedList.png)
 
-*Fig 1: Block diagram for appended a new element to the linked list, and then pushing another one to the head*
+*Fig 1: Block diagram for appending a new element to the linked list, and then pushing another one to the head*
 
 ![](https://github.com/DirkMueller8/linked_list/blob/master/CLILinkedList.png)
 
-*Fig 2: CLI in and output for first appending, then pushing an element*
+*Fig 2: CLI in- and output for first appending, then pushing an element*
