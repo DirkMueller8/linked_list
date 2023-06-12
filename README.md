@@ -16,10 +16,10 @@ b.) is appended to the end of the tail (end)
 
 of the linked list
 
-through it from the head.
-
-This was a task as part of the C# developer line at Fernakademie Klett.
-
 ![](https://github.com/DirkMueller8/linked_list/blob/master/HeadTailLinkedList.png)
 
-*Fig 1: Example for the user having first appended a new element to the linked list, and then pushed yet another one to the head*
+*Fig 1: Block diagram for appended a new element to the linked list, and then pushing another one to the head*
+
+![](https://github.com/DirkMueller8/linked_list/blob/master/CLILinkedList.png)
+
+*Fig 2: CLI in and output for first appending, then pushing an element*

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xml.Linq;
 
 namespace LinkedList
 {
@@ -9,8 +8,7 @@ namespace LinkedList
     // line at Fernakademie Klett
     //
     // Dirk Mueller
-    // Oct 2019
-    // Extended: April 2022
+    // June 2023
     //
 
     class listElement
@@ -28,8 +26,8 @@ namespace LinkedList
             content = newContent;
         }
 
-        // The Append method requires a return typ of listElement, so that it can 
-        // return the most recently defined list element to Main():
+        // Create a new list element and replace next - which is currently null -
+        // by the new element, and return this element:
         public listElement AppendElement(string newContent)
         {
             next = new listElement();
@@ -39,22 +37,23 @@ namespace LinkedList
             // of the list, and can be returned:
             return next;
         }
+
+        // Create a new list element and replace the first one by the new element
+        // , and return this element:
         public listElement MakeElementHead(string newContent, listElement headOfList)
         {
-            /* 1 & 2: Allocate the Node &
-                    //Put in the data*/
-            //Node new_node = new Node(new_data);
+
+            // Create a new list element:
             listElement firstOfList = new listElement();
 
-            /* 3. Make next of new Node as head */
-            //new_node.next = head;
+            // Make current head element to next of new element
             firstOfList.next = headOfList;
 
             firstOfList.SetDataWithoutNext(newContent);
 
-            /* 4. Move the head to point to new Node */
+            // Move the head to point to the new Node */
             //head = new_node;
-            headOfList = firstOfList;
+            //headOfList = firstOfList;
             return firstOfList;
         }
 
@@ -74,45 +73,39 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            listElement headOfList = new listElement();
+            string inputString;
+            string inputElement;
+            bool endProcess = false;
 
-            // Instantiate the tail of the list:
-            listElement tailOfList = new listElement();
+            listElement headOfList = new listElement();
 
             headOfList.SetData("Element 1");
 
-            // Set the new instance to the head of the list, so that the tail 
-            // can be defined:
-
-            tailOfList = headOfList;
+            // Set the new instance to the head of the list, so that the tail can be defined:
+            listElement tailOfList = headOfList;
 
             // Append element to the end of the list. With each append the 
-            // instance tailOfList is set to the newly formed list element, 
-            // by means of returning the value:
-
-            for (int element = 2; element < 5; element++)
+            // instance tailOfList is set to the newly formed list element: 
+            for (int element = 2; element < 4; element++)
                 tailOfList = tailOfList.AppendElement("Element " + element);
 
             headOfList.PrintToScreen();
 
-            string inputString;
-            string inputElement;
-            bool endProcess = false;
             while (!endProcess)
             {
-                Console.WriteLine("Select from the following: 'a' for append, 'h' for make it head, 'x' for abort");
+                Console.WriteLine("\nSelect from the following: 'a' for append, 'h' for make it head, 'x' for abort");
                 inputString = Console.ReadLine();
                 switch (inputString)
                 {
                     case "a":
-                        Console.WriteLine("give a new element number for appending ('x' to abort): ");
+                        Console.WriteLine("Give a new element number for appending ('x' to abort): ");
                         inputElement = Console.ReadLine();
 
                         // append the new list element and determine the end of the list:
-                        tailOfList = tailOfList.AppendElement("element " + inputElement);
+                        tailOfList = tailOfList.AppendElement("Element " + inputElement);
 
                         // append the new list element:
-                        Console.WriteLine("\nprint from head of list after appending:");
+                        Console.WriteLine("\nPrinting the linked list after appending:");
                         headOfList.PrintToScreen();
                         break;
 
@@ -124,12 +117,15 @@ namespace LinkedList
                         headOfList = headOfList.MakeElementHead("Element " + inputElement, headOfList);
 
                         // Append the new list element:
-                        Console.WriteLine("\nPrint from new head of list after appending:");
+                        Console.WriteLine("\nPrinting the linked list after pushing to head:");
                         headOfList.PrintToScreen();
                         break;
 
                     case "x":
                         endProcess = true;
+                        break;
+
+                    default:
                         break;
                 }
             }
