@@ -1,30 +1,25 @@
 ## Linked list with direct append to the tail
 **********************************************
-Software:		C# 
+Software:		C# 10
 
 Version:    	1.0
 
-Date: 			Oct 13, 2020
+Date: 			June 12, 2020
 
 Author:			Dirk Mueller
 **********************************************
-Software for a linked list implementation, where the last element is appended to the end of the list (tail), without having to rund 
+Software for a linked list implementation, where the user can select if a new element
+
+a.) is pushed to the head (beginning) 
+
+b.) is appended to the end of the tail (end)  
+
+of the linked list
+
 through it from the head.
 
 This was a task as part of the C# developer line at Fernakademie Klett.
 
-![](https://github.com/DirkMueller8/linked_list/blob/master/screenshot_code.png)
+![](https://github.com/DirkMueller8/linked_list/blob/master/HeadTailLinkedList.png)
 
-*Fig 1: Excerpt of code showing the method to append an element to the tail directly*
-
-Example results after running the software:
-
-![](https://github.com/DirkMueller8/linked_list/blob/master/screenshot_output.png)
-
-*Fig 2: Example of the software output*
-
-The following course wasused to solve the project:
-
-**Website:**
-
-1. Fernakademie Klett, https://www.fernakademie-klett.de/technik-it/informatik-programmierung-internet/c-software-entwickler/ 
+*Fig 1: Example for the user having first appended a new element to the linked list, and then pushed yet another one to the head*

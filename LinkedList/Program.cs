@@ -1,24 +1,31 @@
 ﻿using System;
+using System.Xml.Linq;
 
 namespace LinkedList
 {
+    // Software for a linked list implementation, where the last element
+    // is appended to the end of the list (tail), without having to run 
+    // through it from the head. This was a task as part of the C# developer
+    // line at Fernakademie Klett
+    //
+    // Dirk Mueller
+    // Oct 2019
+    // Extended: April 2022
+    //
+
     class listElement
     {
         static int position = 0;
-        // Software for a linked list implementation, where the last element
-        // is appended to the end of the list (tail), without having to rund 
-        // through it from the head. This was a task as part of the C# developer
-        // line at Fernakademie Klett
-        // Dirk Mueller,
-        // Oct 2019
-        // Extended: April 2022
-        //
         string content;
         listElement next;
         public void SetData(string newContent)
         {
             content = newContent;
             next = null;
+        }
+        public void SetDataWithoutNext(string newContent)
+        {
+            content = newContent;
         }
 
         // The Append method requires a return typ of listElement, so that it can 
@@ -32,6 +39,24 @@ namespace LinkedList
             // of the list, and can be returned:
             return next;
         }
+        public listElement MakeElementHead(string newContent, listElement headOfList)
+        {
+            /* 1 & 2: Allocate the Node &
+                    //Put in the data*/
+            //Node new_node = new Node(new_data);
+            listElement firstOfList = new listElement();
+
+            /* 3. Make next of new Node as head */
+            //new_node.next = head;
+            firstOfList.next = headOfList;
+
+            firstOfList.SetDataWithoutNext(newContent);
+
+            /* 4. Move the head to point to new Node */
+            //head = new_node;
+            headOfList = firstOfList;
+            return firstOfList;
+        }
 
         public void PrintToScreen()
         {
@@ -41,6 +66,7 @@ namespace LinkedList
                 position++;
                 next.PrintToScreen();
             }
+            position = 0;
         }
     }
 
@@ -49,6 +75,7 @@ namespace LinkedList
         static void Main(string[] args)
         {
             listElement headOfList = new listElement();
+
             // Instantiate the tail of the list:
             listElement tailOfList = new listElement();
 
@@ -62,29 +89,50 @@ namespace LinkedList
             // Append element to the end of the list. With each append the 
             // instance tailOfList is set to the newly formed list element, 
             // by means of returning the value:
-             
+
             for (int element = 2; element < 5; element++)
                 tailOfList = tailOfList.AppendElement("Element " + element);
 
             headOfList.PrintToScreen();
 
             string inputString;
-            do
+            string inputElement;
+            bool endProcess = false;
+            while (!endProcess)
             {
-                Console.WriteLine("Give a new element number ('x' to abort): ");
+                Console.WriteLine("Select from the following: 'a' for append, 'h' for make it head, 'x' for abort");
                 inputString = Console.ReadLine();
+                switch (inputString)
+                {
+                    case "a":
+                        Console.WriteLine("give a new element number for appending ('x' to abort): ");
+                        inputElement = Console.ReadLine();
 
-                // Append the new list element and determine the end of the list:
-                tailOfList = tailOfList.AppendElement("Element " + inputString);
+                        // append the new list element and determine the end of the list:
+                        tailOfList = tailOfList.AppendElement("element " + inputElement);
 
-                Console.WriteLine("Tail of list after appending:");
-                tailOfList.PrintToScreen();
+                        // append the new list element:
+                        Console.WriteLine("\nprint from head of list after appending:");
+                        headOfList.PrintToScreen();
+                        break;
 
-                // Append the new list element:
-                Console.WriteLine("Print from head of list after appending:");
-                headOfList.PrintToScreen();
+                    case "h":
+                        Console.WriteLine("Give a new element number for beginning ('x' to abort): ");
+                        inputElement = Console.ReadLine();
+
+                        // Append the new list element and determine the end of the list:
+                        headOfList = headOfList.MakeElementHead("Element " + inputElement, headOfList);
+
+                        // Append the new list element:
+                        Console.WriteLine("\nPrint from new head of list after appending:");
+                        headOfList.PrintToScreen();
+                        break;
+
+                    case "x":
+                        endProcess = true;
+                        break;
+                }
             }
-            while (inputString.ToLower() != "x");
         }
     }
 }
