@@ -39,7 +39,7 @@ namespace LinkedList
         }
 
         // Create a new list element and replace the first one by the new element
-        // , and return this element:
+        // and return this element:
         public listElement MakeElementHead(string newContent, listElement headOfList)
         {
 
@@ -51,10 +51,38 @@ namespace LinkedList
 
             firstOfList.SetDataWithoutNext(newContent);
 
-            // Move the head to point to the new Node */
-            //head = new_node;
-            //headOfList = firstOfList;
+            // Move the head to point to the new list element:
             return firstOfList;
+        }
+        //public listElement insertElementToPositionN(listElement head, string newContent, int n)
+        //{
+        //    int counter = 0;
+        //    listElement runningElement = head;
+        //    listElement hangOn;
+        //    // create a new list element:
+        //    listElement elementAtPositionN = new listElement();
+        //    elementAtPositionN.SetDataWithoutNext(newContent);
+
+        //    for (int i = 0; i < n; i++)
+        //    {
+        //        runningElement = runningElement.next;
+
+        //    }
+        //    runningElement.next = elementAtPositionN;
+        //    runningElement = runningElement.next;
+        //}
+        public int HowManyElements(listElement headOfList)
+        {
+            int counter = 1;
+            listElement runningElement = new listElement();
+            runningElement = headOfList;
+            do
+            {
+                counter++;
+                runningElement = runningElement.next;
+            }
+            while (runningElement.next != null);
+            return counter;
         }
 
         public void PrintToScreen()
@@ -73,7 +101,7 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
-            string inputString;
+            string whichSelection;
             string inputElement;
             bool endProcess = false;
 
@@ -94,8 +122,8 @@ namespace LinkedList
             while (!endProcess)
             {
                 Console.WriteLine("\nPlease select: 'a' for append, 'h' for make it head, 'x' for abort");
-                inputString = Console.ReadLine();
-                switch (inputString)
+                whichSelection = Console.ReadLine();
+                switch (whichSelection)
                 {
                     case "a":
                         Console.WriteLine("Give a new element number for appending: ");
@@ -128,6 +156,7 @@ namespace LinkedList
                     default:
                         break;
                 }
+                Console.WriteLine($"How many: {headOfList.HowManyElements(headOfList)}");
             }
         }
     }
