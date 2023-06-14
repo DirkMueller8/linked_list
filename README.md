@@ -1,4 +1,4 @@
-## Linked list with direct append to the tail or push to the head
+## Linked list with options to append, to push to head, or insert
 **********************************************
 Software:		C# 10
 
