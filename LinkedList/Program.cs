@@ -13,14 +13,19 @@ namespace LinkedList
 
     class listElement
     {
+        // have the list element contain the content and a pointer to the next element:
         static int position = 0;
         string content;
         listElement next;
+
+        // Add new content and intialize its pointer to the still non-existing next element:
         public void SetData(string newContent)
         {
             content = newContent;
             next = null;
         }
+
+        // Do the same as in SetData, but without adding a pointer:
         public void SetDataWithoutNext(string newContent)
         {
             content = newContent;
@@ -33,27 +38,28 @@ namespace LinkedList
             next = new listElement();
             next.SetData(newContent);
 
-            // The new list element was created in next. Thereby next is the end 
+            // The new list element was assigned next. Thereby next is the end 
             // of the list, and can be returned:
             return next;
         }
 
-        // Create a new list element and replace the first one by the new element
-        // and return this element:
+        // Create a new list element and replace the first one of the existing
+        // list by the new element and return this element:
         public listElement MakeElementHead(string newContent, listElement headOfList)
         {
 
             // Create a new list element:
             listElement firstOfList = new listElement();
 
-            // Make current head element to next of new element
+            // Make current head element to next of the new head element:
             firstOfList.next = headOfList;
-
+            // Insert data:
             firstOfList.SetDataWithoutNext(newContent);
 
-            // Move the head to point to the new list element:
             return firstOfList;
         }
+
+        // Create a new list element and replace the nth element with the new element:
         public void InsertElementToPositionN(listElement head, string newContent, int n)
         {
             listElement newElement = new listElement();
@@ -63,15 +69,24 @@ namespace LinkedList
 
             for (int i = 0; ; i++)
             {
+                // When reaching the position in the existing list just left
+                // to the desired position, do the inserting and wiring:
                 if (i == (n - 1))
                 {
+                    // Point the new element to the next element of the existing list:
                     newElement.next = runningElement.next;
+
+                    // Have the previous list element of the existing list point to the
+                    // new element:
                     runningElement.next = newElement;
                     break;
                 }
+                // Move on one element to the right:
                 runningElement = runningElement.next;
             }
         }
+
+        //
         public int HowManyElements(listElement headOfList)
         {
             int counter = 1;
@@ -119,6 +134,7 @@ namespace LinkedList
             for (int element = 2; element < 4; element++)
                 tailOfList = tailOfList.AppendElement("Element " + element);
 
+            // Show situation at start:
             headOfList.PrintToScreen();
 
             while (!endProcess)
@@ -131,10 +147,9 @@ namespace LinkedList
                         Console.WriteLine("Give a new element number for appending: ");
                         inputElement = Console.ReadLine();
 
-                        // append the new list element and determine the end of the list:
+                        // Append the new list element and determine the end of the list:
                         tailOfList = tailOfList.AppendElement("Element " + inputElement);
 
-                        // append the new list element:
                         Console.WriteLine("\nPrinting the linked list after appending:");
                         headOfList.PrintToScreen();
                         break;
@@ -143,10 +158,9 @@ namespace LinkedList
                         Console.WriteLine("Give a new element number for beginning: ");
                         inputElement = Console.ReadLine();
 
-                        // Append the new list element and determine the end of the list:
+                        // Place the new list element to the beginning of the list:
                         headOfList = headOfList.MakeElementHead("Element " + inputElement, headOfList);
 
-                        // Append the new list element:
                         Console.WriteLine("\nPrinting the linked list after pushing to head:");
                         headOfList.PrintToScreen();
                         break;
@@ -154,9 +168,14 @@ namespace LinkedList
                     case "n":
                         Console.WriteLine("Give a new element number: ");
                         inputElement = Console.ReadLine();
-                        Console.WriteLine("Give the psoition n where to insert into: ");
+
+                        Console.WriteLine("Give the position n where to insert new element to: ");
                         n = Convert.ToInt32(Console.ReadLine());
+                        
+                        // Use the existing linked list and insert new element to position n,
+                        // shift all the others right to it by one position and rewire:
                         headOfList.InsertElementToPositionN(headOfList, "Element " + inputElement, n);
+
                         Console.WriteLine("\nPrinting the linked list after placing in position n:");
                         headOfList.PrintToScreen();
                         break;
@@ -168,7 +187,7 @@ namespace LinkedList
                     default:
                         break;
                 }
-                Console.WriteLine($"How many: {headOfList.HowManyElements(headOfList)}");
+                Console.WriteLine($"There are now {headOfList.HowManyElements(headOfList)} elements in the linked list");
             }
         }
     }
