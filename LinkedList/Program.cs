@@ -2,21 +2,18 @@
 
 namespace LinkedList
 {
-    // Software for a linked list implementation, where the last element
-    // is appended to the end of the list (tail), without having to run 
-    // through it from the head. This was a task as part of the C# developer
-    // line at Fernakademie Klett
+    // Software for a linked list implementation, where the user can apply various options
+    // to change the linked list (appending, pushing, inserting)
     //
-    // Dirk Mueller
-    // June 2023
-    //
+    // Dirk Mueller, 14 June 2023
 
-    class listElement
+    internal class listElement
     {
-        // have the list element contain the content and a pointer to the next element:
-        static int position = 0;
-        string content;
-        listElement next;
+        // Have the list element contain the content and a pointer to the next element:
+        private static int position = 0;
+
+        private string content;
+        private listElement next;
 
         // Add new content and intialize its pointer to the still non-existing next element:
         public void SetData(string newContent)
@@ -31,23 +28,22 @@ namespace LinkedList
             content = newContent;
         }
 
-        // Create a new list element and replace next - which is currently null -
-        // by the new element, and return this element:
+        // Create a new list element and replace next - which is currently null - by the new
+        // element, and return this element:
         public listElement AppendElement(string newContent)
         {
             next = new listElement();
             next.SetData(newContent);
 
-            // The new list element was assigned next. Thereby next is the end 
-            // of the list, and can be returned:
+            // The new list element was assigned next. Thereby next is the end of the list, and can
+            // be returned:
             return next;
         }
 
-        // Create a new list element and replace the first one of the existing
-        // list by the new element and return this element:
+        // Create a new list element and replace the first one of the existing list by the new
+        // element and return this element:
         public listElement MakeElementHead(string newContent, listElement headOfList)
         {
-
             // Create a new list element:
             listElement firstOfList = new listElement();
 
@@ -69,8 +65,8 @@ namespace LinkedList
 
             for (int i = 0; ; i++)
             {
-                // When reaching the position in the existing list just left
-                // to the desired position, do the inserting and wiring:
+                // When reaching the position in the existing list just left to the desired
+                // position, do the inserting and wiring:
                 if (i == (n - 1))
                 {
                     // Point the new element to the next element of the existing list:
@@ -113,9 +109,9 @@ namespace LinkedList
         }
     }
 
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             string whichSelection;
             string inputElement;
@@ -130,8 +126,8 @@ namespace LinkedList
             // Set the new instance to the head of the list, so that the tail can be defined:
             listElement tailOfList = headOfList;
 
-            // Append element to the end of the list. With each append the 
-            // instance tailOfList is set to the newly formed list element: 
+            // Append element to the end of the list. With each append the instance tailOfList is
+            // set to the newly formed list element:
             for (int element = 2; element < 4; element++)
                 tailOfList = tailOfList.AppendElement("Element " + element);
 
@@ -189,8 +185,8 @@ namespace LinkedList
                             break;
                         }
 
-                        // Use the existing linked list and insert new element to position n,
-                        // shift all the others right to it by one position and rewire:
+                        // Use the existing linked list and insert new element to position n, shift
+                        // all the others right to it by one position and rewire:
                         headOfList.InsertElementToPositionN(headOfList, "Element " + inputElement, n);
 
                         Console.WriteLine("\nPrinting the linked list after placing in position n:");
