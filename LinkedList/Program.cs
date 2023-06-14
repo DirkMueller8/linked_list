@@ -182,7 +182,13 @@ namespace LinkedList
                             Console.WriteLine("Not an integer. Please try again");
                             break;
                         }
-                        
+
+                        if (n > headOfList.HowManyElements(headOfList) || n < 0)
+                        {
+                            Console.WriteLine("Position you gave is outside the linked list");
+                            break;
+                        }
+
                         // Use the existing linked list and insert new element to position n,
                         // shift all the others right to it by one position and rewire:
                         headOfList.InsertElementToPositionN(headOfList, "Element " + inputElement, n);
@@ -198,7 +204,7 @@ namespace LinkedList
                     default:
                         break;
                 }
-                Console.WriteLine($"There are now {headOfList.HowManyElements(headOfList)} elements in the linked list");
+                Console.WriteLine($"\nThere are now {headOfList.HowManyElements(headOfList)} elements in the linked list");
             }
         }
     }
