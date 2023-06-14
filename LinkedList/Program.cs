@@ -204,8 +204,8 @@ namespace LinkedList
                     default:
                         break;
                 }
-                Console.WriteLine($"\nThere are now {headOfList.HowManyElements(headOfList)} elements in the linked list");
             }
+            Console.WriteLine($"\nThere are now {headOfList.HowManyElements(headOfList)} elements in the linked list");
         }
     }
 }
