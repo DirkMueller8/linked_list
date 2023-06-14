@@ -119,6 +119,7 @@ namespace LinkedList
         {
             string whichSelection;
             string inputElement;
+            string intInput;
             bool endProcess = false;
             int n;
 
@@ -170,7 +171,17 @@ namespace LinkedList
                         inputElement = Console.ReadLine();
 
                         Console.WriteLine("Give the position n where to insert new element to: ");
-                        n = Convert.ToInt32(Console.ReadLine());
+                        intInput = Console.ReadLine();
+
+                        if (int.TryParse(intInput, out n))
+                        {
+                            n = Convert.ToInt32(intInput);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not an integer. Please try again");
+                            break;
+                        }
                         
                         // Use the existing linked list and insert new element to position n,
                         // shift all the others right to it by one position and rewire:
