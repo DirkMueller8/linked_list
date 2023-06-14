@@ -44,15 +44,13 @@ namespace LinkedList
         // element and return this element:
         public listElement MakeElementHead(string newContent, listElement headOfList)
         {
-            // Create a new list element:
-            listElement firstOfList = new listElement();
-
-            // Make current head element to next of the new head element:
-            firstOfList.next = headOfList;
-            // Insert data:
-            firstOfList.SetDataWithoutNext(newContent);
-
-            return firstOfList;
+            int counter = 1;
+            listElement runningElement = new listElement();
+            runningElement = headOfList;
+            do
+            {
+                counter++;
+                runningElement = runningElement.next;
         }
 
         // Create a new list element and replace the nth element with the new element:
