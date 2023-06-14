@@ -54,23 +54,24 @@ namespace LinkedList
             // Move the head to point to the new list element:
             return firstOfList;
         }
-        //public listElement insertElementToPositionN(listElement head, string newContent, int n)
-        //{
-        //    int counter = 0;
-        //    listElement runningElement = head;
-        //    listElement hangOn;
-        //    // create a new list element:
-        //    listElement elementAtPositionN = new listElement();
-        //    elementAtPositionN.SetDataWithoutNext(newContent);
+        public void InsertElementToPositionN(listElement head, string newContent, int n)
+        {
+            listElement newElement = new listElement();
+            newElement.SetDataWithoutNext(newContent);
 
-        //    for (int i = 0; i < n; i++)
-        //    {
-        //        runningElement = runningElement.next;
+            listElement runningElement = head;
 
-        //    }
-        //    runningElement.next = elementAtPositionN;
-        //    runningElement = runningElement.next;
-        //}
+            for (int i = 0; ; i++)
+            {
+                if (i == (n - 1))
+                {
+                    newElement.next = runningElement.next;
+                    runningElement.next = newElement;
+                    break;
+                }
+                runningElement = runningElement.next;
+            }
+        }
         public int HowManyElements(listElement headOfList)
         {
             int counter = 1;
@@ -104,6 +105,7 @@ namespace LinkedList
             string whichSelection;
             string inputElement;
             bool endProcess = false;
+            int n;
 
             listElement headOfList = new listElement();
 
@@ -121,7 +123,7 @@ namespace LinkedList
 
             while (!endProcess)
             {
-                Console.WriteLine("\nPlease select: 'a' for append, 'h' for make it head, 'x' for abort");
+                Console.WriteLine("\nPlease select: 'a' for append, 'h' for make it head, 'n' for insert at position n, 'x' for abort");
                 whichSelection = Console.ReadLine();
                 switch (whichSelection)
                 {
@@ -146,6 +148,16 @@ namespace LinkedList
 
                         // Append the new list element:
                         Console.WriteLine("\nPrinting the linked list after pushing to head:");
+                        headOfList.PrintToScreen();
+                        break;
+
+                    case "n":
+                        Console.WriteLine("Give a new element number: ");
+                        inputElement = Console.ReadLine();
+                        Console.WriteLine("Give the psoition n where to insert into: ");
+                        n = Convert.ToInt32(Console.ReadLine());
+                        headOfList.InsertElementToPositionN(headOfList, "Element " + inputElement, n);
+                        Console.WriteLine("\nPrinting the linked list after placing in position n:");
                         headOfList.PrintToScreen();
                         break;
 
